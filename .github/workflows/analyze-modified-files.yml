@@ -36,19 +36,13 @@ jobs:
           echo "$DIFF"
           echo "diff=${DIFF//$'\n'/$' '}" >> $GITHUB_ENV
 
-      - name: "Determine modified files (push)"
-        if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+      - name: "Check TWW only (push)"
+        if: github.event_name == 'push'
         run: |
-          git fetch origin $BEFORE $AFTER
-          DIFF=$(git diff --diff-filter=d --name-only $BEFORE..$AFTER -- "*.py")
-          echo "modified files:"
+          DIFF=$(find worlds/tww -type f -name "*.py")
+          echo "TWW files:"
           echo "$DIFF"
           echo "diff=${DIFF//$'\n'/$' '}" >> $GITHUB_ENV
-
-      - name: "Treat all files as modified (new branch)"
-        if: github.event_name == 'push' && github.event.before == '0000000000000000000000000000000000000000'
-        run: |
-          echo "diff=." >> $GITHUB_ENV
 
       - uses: actions/setup-python@v5
         if: env.diff != ''
