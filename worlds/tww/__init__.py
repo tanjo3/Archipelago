@@ -312,6 +312,7 @@ class TWWWorld(World):
         self.logic_precise_2 = self.logic_precise_3 or options.logic_precision == "hard"
         self.logic_precise_1 = self.logic_precise_2 or options.logic_precision == "normal"
         self.logic_tuner_logic_enabled = bool(options.enable_tuner_logic.value)
+        self.logic_open_drc = bool(options.open_drc)
 
         # Determine any item classification overrides based on user options.
         self._determine_item_classification_overrides()

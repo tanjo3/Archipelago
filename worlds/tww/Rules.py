@@ -73,6 +73,9 @@ class TWWLogic(LogicMixin):
 
     def _tww_tuner_logic_enabled(self, player: int) -> bool:
         return self.multiworld.worlds[player].logic_tuner_logic_enabled
+        
+    def _tww_open_drc(self, player: int) -> bool:
+        return self.multiworld.worlds[player].logic_open_drc
 
 
 def set_rules(world: "TWWWorld") -> None:  # noqa: F405

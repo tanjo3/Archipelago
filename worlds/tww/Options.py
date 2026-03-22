@@ -422,6 +422,14 @@ class EnableTunerLogic(Toggle):
     display_name = "Enable Tuner Logic"
 
 
+class OpenDRC(Toggle):
+    """
+    If enabled, the boulder in front of the DRC entrance will be removed and the location will be accessible with no items
+    """
+
+    display_name = "Open DRC Entrance"
+
+
 class RandomizeDungeonEntrances(Toggle):
     """
     Shuffles around which dungeon entrances take you into which dungeons.
@@ -727,6 +735,7 @@ class TWWOptions(PerGameCommonOptions):
     hero_mode: HeroMode
     logic_obscurity: LogicObscurity
     logic_precision: LogicPrecision
+    open_drc: OpenDRC
     enable_tuner_logic: EnableTunerLogic
     randomize_dungeon_entrances: RandomizeDungeonEntrances
     randomize_secret_cave_entrances: RandomizeSecretCavesEntrances
@@ -791,6 +800,7 @@ class TWWOptions(PerGameCommonOptions):
             "logic_obscurity",
             "logic_precision",
             "enable_tuner_logic",
+            "open_drc",
             "randomize_dungeon_entrances",
             "randomize_secret_cave_entrances",
             "randomize_miniboss_entrances",
@@ -847,6 +857,7 @@ class TWWOptions(PerGameCommonOptions):
             "hero_mode",
             "logic_obscurity",
             "logic_precision",
+            "open_drc",
             "randomize_dungeon_entrances",
             "randomize_secret_cave_entrances",
             "randomize_miniboss_entrances",
@@ -916,6 +927,7 @@ tww_option_groups: list[OptionGroup] = [
             RandomizeSecretCaveInnerEntrances,
             RandomizeFairyFountainEntrances,
             MixEntrances,
+            OpenDRC,
         ],
     ),
     OptionGroup(

@@ -304,7 +304,11 @@ def can_reach_wind_temple_tall_basement_room(state: CollectionState, player: int
 
 
 def can_access_dungeon_entrance_on_dragon_roost_island(state: CollectionState, player: int) -> bool:
-    return True
+    return state._tww_open_drc(player) or (
+        can_move_boulders(state, player)
+        or can_fly_with_deku_leaf_outdoors(state, player)
+        or state.has("Empty Bottle", player, 1)
+    )
 
 
 def can_access_forest_haven(state: CollectionState, player: int) -> bool:
